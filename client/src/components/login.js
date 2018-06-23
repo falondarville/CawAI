@@ -13,7 +13,7 @@ export default class Login extends Component {
 				<div className="triangle"></div>
 					<div className="container text-center">
 						<div><img id="logo" src="/images/caw.png" className="image-fluid" alt="crow"></img></div>
-						<button onClick={this.handleClick} className="btn btn-start mt-3 mb-3">Get started </button>
+						<button onClick={this.handleClick} className="btn btn-start mt-3 mb-3">Enter </button>
 						
 						{/*<div className="card">*/}
 {/*  							<div className="card-body">
