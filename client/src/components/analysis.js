@@ -8,7 +8,7 @@ export default class Analysis extends Component {
 		super();
 		this.state = {
 			content: '',
-			watsonResponse: {}
+			watsonResponse: { personality: [], needs: [], values: []},
 		}
 	}
 
@@ -22,6 +22,8 @@ export default class Analysis extends Component {
 	handleSubmit = (event) => {
 
 		event.preventDefault();
+
+		let self = this;
  
  		axios.get('http://localhost:3000/api/watson', {
  			params: { content: this.state.content
@@ -29,7 +31,7 @@ export default class Analysis extends Component {
  		})
 		 	.then(function(response){
 
-		 		this.setState({watsonResponse: response.data});
+		 		self.setState({watsonResponse: response.data});
 		 		console.log(response);
 		 	})
 		 	.catch(function(error){
@@ -44,10 +46,31 @@ export default class Analysis extends Component {
 				<h4>Enter a minimum of 100 words.</h4>
 				<input name="content" onChange={this.handleChange}></input>
 				<button onClick={this.handleSubmit} className="btn btn-primary">Get your results</button>
-				<p>{watsonResponse.consumption_preferences}</p>
-				<p>{watsonResponse.needs}</p>
-				<p>{watsonResponse.personality}</p>
-				<p>{watsonResponse.values}</p>
+
+			{/*add conditional logic .length to check if there are results*/}
+				<h2>Results</h2>
+				<h5>Personality</h5>
+				{this.state.watsonResponse.personality.map(function(item, i){
+					return <div key={i}>
+							<p>{item.name}</p>
+							<p>{item.percentile}</p>
+							<p>{item.raw_score}</p>
+						</div>
+				})}
+				{this.state.watsonResponse.needs.map(function(item, i){
+					return <div key={i}>
+							<p>{item.name}</p>
+							<p>{item.percentile}</p>
+							<p>{item.raw_score}</p>
+						</div>
+				})}
+				{this.state.watsonResponse.values.map(function(item, i){
+					return <div key={i}>
+							<p>{item.name}</p>
+							<p>{item.percentile}</p>
+							<p>{item.raw_score}</p>
+						</div>
+				})}
 			</div>
 			)
 	}
