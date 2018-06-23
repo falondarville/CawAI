@@ -41,15 +41,14 @@ export default class Analysis extends Component {
 
 	render(){
 		return(
-			<div>
+			<div className="text-center mt-5">
 				<h1>Start analyzing your text</h1>
-				<h4>Enter a minimum of 100 words.</h4>
-				<input name="content" onChange={this.handleChange}></input>
-				<button onClick={this.handleSubmit} className="btn btn-primary">Get your results</button>
+				<h4 className="mb-3">Enter a minimum of 100 words.</h4>
+				<textarea cols="60" rows="10" name="content" onChange={this.handleChange}></textarea><br />
+				<button onClick={this.handleSubmit} className="btn btn-primary mt-3">Get your results</button>
 
 			{/*add conditional logic .length to check if there are results*/}
-				<h2>Results</h2>
-				<h5>Personality</h5>
+				{/*<h2>Results</h2>*/}
 				{this.state.watsonResponse.personality.map(function(item, i){
 					return <div key={i}>
 							<p>{item.name}</p>

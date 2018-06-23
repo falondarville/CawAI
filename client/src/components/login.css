@@ -38,3 +38,12 @@
 	max-width: 210px;
 	margin-left: -6px;
 }
+
+a {
+	color: pink;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: black;
+}

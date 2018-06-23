@@ -11,6 +11,7 @@ export default class Login extends Component {
 		return (
 			<div>
 				<div className="triangle"></div>
+				<a className="float-right mr-2 mt-2" href='#'>Create an account.</a>
 					<div className="container text-center">
 						<div><img id="logo" src="/images/caw.png" className="image-fluid" alt="crow"></img></div>
 						<button onClick={this.handleClick} className="btn btn-start mt-3 mb-3">Enter </button>
