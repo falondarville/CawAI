@@ -47,7 +47,7 @@ export default class Analysis extends Component {
 				<textarea cols="60" rows="10" name="content" onChange={this.handleChange}></textarea><br />
 				<button onClick={this.handleSubmit} className="btn btn-primary mt-3">Get your results</button>
 
-			{/*add conditional logic .length to check if there are results*/}
+				{/*add conditional logic .length to check if there are results*/}
 				{/*<h2>Results</h2>*/}
 				{this.state.watsonResponse.personality.map(function(item, i){
 					return <div key={i}>
