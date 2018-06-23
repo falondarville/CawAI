@@ -39,13 +39,24 @@ export default class Analysis extends Component {
 		 	})
 	}
 
+	canSubmit = (event) => {
+		const { content } = this.state;
+
+		return (
+			content.split(' ').length - 1 > 99
+			)
+	}
+
 	render(){
+
+		const isEnabled = this.canSubmit();
+
 		return(
 			<div className="text-center mt-5">
 				<h1>Start analyzing your text</h1>
-				<h4 className="mb-3">Enter a minimum of 100 words.</h4>
+				<p className="mb-3">Enter a minimum of 100 words.</p>
 				<textarea cols="60" rows="10" name="content" onChange={this.handleChange}></textarea><br />
-				<button onClick={this.handleSubmit} className="btn btn-primary mt-3">Get your results</button>
+				<button disabled={!isEnabled} onClick={this.handleSubmit} className="btn mt-3 btn-grad">Get your results</button>
 
 				{/*add conditional logic .length to check if there are results*/}
 				{/*<h2>Results</h2>*/}
