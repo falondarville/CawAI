@@ -2,10 +2,24 @@ h1 {
 	font-family: 'Encode Sans Condensed', sans-serif;
 }
 
-.btn-grad {
-	background-image: linear-gradient(to right, #ff6e7f 0%, #bfe9ff 51%, #ff6e7f 100%)
+.btn-results {
+	border: 1px solid #37474f;
+	color: black;
+	background-color: white;
 }
 
-.btn-grad:hover { 
-	background-position: right center; 
+#logo-small {
+	max-width: 100px;
+}
+
+.input-column {
+	background-color: pink;
+}
+
+textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    width: 100%;
 }
