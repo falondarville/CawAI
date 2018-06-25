@@ -10,25 +10,6 @@
 	color: pink;
 }
 
-.triangle {
-   width: 0;
-   height: 0;
-   border-left: 210vh solid pink;
-   border-top: 100vh solid transparent;
-   border-bottom: 0vh solid transparent;
-   position: absolute;
-   z-index: 0;
-}
-
-.container{
-	z-index: 99;
-	position: fixed;
-	top: 50%;
-  	transform: translateY(-50%);
-  	left: 0;
-  	right: 0;
-}
-
 .card {
 	width: 50%;
 	position: center;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './analysis.css';
+import PersonalitySunburstChart from 'personality-sunburst-chart/lib/charts/v3-d3v4';
 
 export default class Analysis extends Component {
 
@@ -32,6 +33,12 @@ export default class Analysis extends Component {
 		 	.then(function(response){
 
 		 		self.setState({watsonResponse: response.data});
+
+		 		var chart = new PersonalitySunburstChart({
+			    	'selector':'#sunburstChart',
+			    	'version': 'v3'
+			  	});
+			  	chart.show(response.data);
 		 		console.log(response);
 		 	})
 		 	.catch(function(error){
@@ -53,8 +60,6 @@ export default class Analysis extends Component {
 
 		return(
 			<div className="container">
-			<div className="row">
-			<div className="col-md-6 input-column">
 			<div className="text-center mt-5">
 				<nav><img id="logo-small" className="img-fluid" src="/images/caw-c-only.png"></img></nav>
 				
@@ -63,34 +68,9 @@ export default class Analysis extends Component {
 				<textarea cols="60" rows="10" name="content" onChange={this.handleChange}></textarea><br />
 				<button disabled={!isEnabled} onClick={this.handleSubmit} className="btn mt-3 btn-results mb-5">Get your results</button>
 			</div>
-				{/*add conditional logic .length to check if there are results*/}
-				{/*<h2>Results</h2>*/}
-				{/*render the percentile and raw_score as graphical representations*/}
-			<div className="col-md-6">
-				{this.state.watsonResponse.personality.map(function(item, i){
-					return <div key={i}>
-							<p>{item.name}</p>
-							<p>{item.percentile}</p>
-							<p>{item.raw_score}</p>
-						</div>
-				})}
-				{this.state.watsonResponse.needs.map(function(item, i){
-					return <div key={i}>
-							<p>{item.name}</p>
-							<p>{item.percentile}</p>
-							<p>{item.raw_score}</p>
-						</div>
-				})}
-				{this.state.watsonResponse.values.map(function(item, i){
-					return <div key={i}>
-							<p>{item.name}</p>
-							<p>{item.percentile}</p>
-							<p>{item.raw_score}</p>
-						</div>
-				})}
-				</div>
-			</div>
-			</div>
+
+				<div id='sunburstChart'></div>
+			
 			</div>
 			)
 	}

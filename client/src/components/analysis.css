@@ -12,10 +12,6 @@ h1 {
 	max-width: 100px;
 }
 
-.input-column {
-	background-color: pink;
-}
-
 textarea {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
