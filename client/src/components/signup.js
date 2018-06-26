@@ -64,6 +64,7 @@ export default class SignUp extends Component {
 		return (
 			<div>
 					<div className="dropdown show">
+
 						<a href="#" className="float-right mr-5 mt-3" data-toggle="dropdown">Log In</a>
 						<form className="dropdown-menu p-4" autoComplete="off" method="post" action="http://localhost:3000/login">
 						  <div className="form-group">
@@ -81,9 +82,11 @@ export default class SignUp extends Component {
 
 					<div className="container text-center">
 						<div><img id="logo" src="/images/caw.png" alt="crow" className="image-fluid mt-5 mb-4"></img></div>
+
 					{/*sign-up form*/}
 						<form autoComplete="off">
 						  <div className="form-group">
+						  <div><small className="float-left mb-5">Caw is a user-friendly interface for the Watson Personality Insights AI, which analyzes portions of text of at least 100 words in length. Results will give insight into the author's personality traits. By signing up with Caw, users will have their searches and results stored for later reference. </small></div>
 						    
 						    <input type="email" className="form-control" name="signupemail" onChange={this.handleChange} placeholder="Enter email" />
 						  </div>
@@ -94,7 +97,9 @@ export default class SignUp extends Component {
 						  <div><small className="float-left">By signing up, you authorize us to remember your searches and results. Data associated with your account will never be shared with other parties. Click on "Use Without Account" if you would not like your data stored. </small></div>
 						  <button type="submit" className="btn btn-start" onClick={this.handleSubmit} disabled={!isEnabled}>Sign Up</button>
 							<button onClick={this.handleClick} className="btn btn-start mt-3 mb-3">Use Without Account </button>
+							
 						</form>
+						<a href="https://github.com/falondarville/CawAI"><small>Github Repository / </small></a> <a href="https://falondarville.github.io/Portfolio/"><small>Built by Falon Darville</small></a>
 
 				</div>
 			</div>
