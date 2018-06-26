@@ -1,8 +1,9 @@
-import React, { Component, Redirect } from 'react';
-import './login.css'
+import React, { Component } from 'react';
+import axios from 'axios';
+import './signup.css'
 
 // this is the sign up page
-export default class Login extends Component {
+export default class SignUp extends Component {
 
 	constructor(){
 		super();
@@ -34,9 +35,9 @@ export default class Login extends Component {
 			event.preventDefault();
 			const { email, password } = this.state;
 			let self = this;
-
+ 
 			// post to API to add new user
-			axios.post('/addUser', {
+			axios.post('http://localhost:3000/addUser', {
 				email, password
 			})
 			.then(function(data){
@@ -66,7 +67,7 @@ export default class Login extends Component {
 					{/*branding section*/}
 					<a href="/" className="float-right mr-5 mt-3">Log In</a>
 					<div className="container text-center">
-						<div><img id="logo" src="/images/caw.png" alt="crow logo" className="image-fluid mt-5 mb-4" alt="crow"></img></div>
+						<div><img id="logo" src="/images/caw.png" alt="crow" className="image-fluid mt-5 mb-4"></img></div>
 					{/*sign-up form*/}
 						<form>
 						  <div className="form-group">
