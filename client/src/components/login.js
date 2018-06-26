@@ -1,18 +1,65 @@
 import React, { Component, Redirect } from 'react';
 import './login.css'
 
+// this is the sign up page
 export default class Login extends Component {
+
+	constructor(){
+		super();
+		this.state = {
+			email: '',
+			password: '',
+			serverErrors: {}
+		}
+	}
+
+	handleChange = (event) => {
+		const state = this.state;
+		state[event.target.name] = event.target.value;
+		this.setState(state, () => console.log(this.state));
+		console.log(event.target.value);
+	}
 
 	handleClick = () => {
 		this.props.history.push('/analysis');
 	}
 
-	handleSubmit = () => {
+	handleSubmit = (event) => {
 		// check if the form has been filled out correctly
-		// if so, post to users email and password
+		// if so, post to users route
+		if(!this.canSubmit()){
+			event.preventDefault();
+			return;
+		} else {
+			event.preventDefault();
+			const { email, password } = this.state;
+			let self = this;
+
+			// post to API to add new user
+			axios.post('/addUser', {
+				email, password
+			})
+			.then(function(data){
+				console.log(data);
+			})
+			.catch(function(error){
+				console.log(error);
+				self.setState({ serverErrors: error.response.data.data });
+			})
+		}
+	}
+
+	canSubmit = (event) => {
+		const {email, password} = this.state;
+		return (
+			email.length > 0 &&
+			password.length >= 6
+		)
 	}
 
 	render(){
+
+		const isEnabled = this.canSubmit();
 
 		return (
 			<div>
@@ -24,13 +71,13 @@ export default class Login extends Component {
 						<form>
 						  <div className="form-group">
 						    
-						    <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
+						    <input type="email" className="form-control" name="email" onChange={this.handleChange} placeholder="Enter email" />
 						  </div>
 						  <div className="form-group">
 						    
-						    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+						    <input type="password" className="form-control" name="password" onChange={this.handleChange} placeholder="Password" />
 						  </div>
-						  <button type="submit" className="btn btn-start" onClick={this.handleSubmit}>Sign Up</button>
+						  <button type="submit" className="btn btn-start" onClick={this.handleSubmit} disabled={!isEnabled}>Sign Up</button>
 							<button onClick={this.handleClick} className="btn btn-start mt-3 mb-3">Use Without Account </button>
 						</form>
 
