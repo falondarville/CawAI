@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './signup.css'
 
-// this is the sign up page
+// this is the sign up and log in page
 export default class SignUp extends Component {
 
 	constructor(){
 		super();
 		this.state = {
-			email: '',
-			password: '',
-			serverErrors: {}
+			signupemail: '',
+			signuppassword: '',
+			signupserverErrors: {},
+			loginemail: '',
+			loginpassword: '',
+			loginserverErrors: {}
 		}
 	}
 
@@ -49,10 +52,10 @@ export default class SignUp extends Component {
 	}
 
 	canSubmit = (event) => {
-		const {email, password} = this.state;
+		const {signupemail, signuppassword} = this.state;
 		return (
-			email.length > 0 &&
-			password.length >= 6
+			signupemail.length > 0 &&
+			signuppassword.length >= 6
 		)
 	}
 
@@ -67,11 +70,11 @@ export default class SignUp extends Component {
 						<form className="dropdown-menu p-4">
 						  <div className="form-group">
 						    <label>Email address</label>
-						    <input type="email" className="form-control" placeholder="email@example.com" />
+						    <input type="email" className="form-control" name="loginemail" onChange={this.handleChange} placeholder="email@example.com" />
 						  </div>
 						  <div className="form-group">
 						    <label>Password</label>
-						    <input type="password" className="form-control" id="exampleDropdownFormPassword2" placeholder="Password" />
+						    <input type="password" className="form-control" name="loginpassword" id="exampleDropdownFormPassword2" onChange={this.handleChange} placeholder="Password" />
 						  </div>
 						  <button type="submit" className="btn btn-start">Sign in</button>
 						</form>
@@ -83,11 +86,11 @@ export default class SignUp extends Component {
 						<form autoComplete="off">
 						  <div className="form-group">
 						    
-						    <input type="email" className="form-control" name="email" onChange={this.handleChange} placeholder="Enter email" />
+						    <input type="email" className="form-control" name="signupemail" onChange={this.handleChange} placeholder="Enter email" />
 						  </div>
 						  <div className="form-group">
 						    
-						    <input type="password" className="form-control" name="password" onChange={this.handleChange} placeholder="Password" />
+						    <input type="password" className="form-control" name="signuppassword" onChange={this.handleChange} placeholder="Password" />
 						  </div>
 						  <button type="submit" className="btn btn-start" onClick={this.handleSubmit} disabled={!isEnabled}>Sign Up</button>
 							<button onClick={this.handleClick} className="btn btn-start mt-3 mb-3">Use Without Account </button>

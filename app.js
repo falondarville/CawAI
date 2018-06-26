@@ -9,7 +9,8 @@ const cors = require('cors');
 const nodemon = require('nodemon');
 const mysql = require('mysql');
 const bcrypt = require('bcrypt');
-const passport = require('passport')
+const passport = require('passport');
+const session = require('express-session')
   	, LocalStrategy = require('passport-local').Strategy;
 const db = require('./models');
 

@@ -1,16 +1,9 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
 const passport = require('passport')
   	, LocalStrategy = require('passport-local').Strategy;
 const router = express.Router();
-const bcrypt = require('bcrypt');
 
 const app = express();
-
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-app.use(cors());
 
 // this is the authentication for the registration form
 router.post('/login',
