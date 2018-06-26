@@ -6,6 +6,9 @@ var logger = require('morgan');
 require('dotenv').config()
 var cors = require('cors');
 var nodemon = require('nodemon');
+var mysql = require('mysql');
+const bcrypt = require('bcrypt');
+const db = require('./models');
 
 var watsonRouter = require('./routes/watson')
 var indexRouter = require('./routes/index');
