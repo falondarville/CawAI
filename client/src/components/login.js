@@ -1,26 +1,34 @@
-import React, { Component } from 'react';
+import React, { Component, Redirect } from 'react';
 import './login.css'
 
 export default class Login extends Component {
 
 	handleClick = () => {
-		window.location.assign('/analysis');
+		this.props.history.push('/analysis');
 	}
 
 	render(){
+
 		return (
 			<div>
-				<div className="triangle"></div>
-				<a className="float-right mr-2 mt-2" href='#'>Create an account.</a>
+					{/*branding section*/}
+					<a href="/" className="float-right mr-5 mt-3">Log In</a>
 					<div className="container text-center">
-						<div><img id="logo" src="/images/caw.png" className="image-fluid" alt="crow"></img></div>
-						<button onClick={this.handleClick} className="btn btn-start mt-3 mb-3">Enter </button>
-						
-						{/*<div className="card">*/}
-{/*  							<div className="card-body">
-							Make your voice heard by being consistent in your personal branding, establishing a tone across your communications, and preserving your sentiments.
-						  </div>*/}
-						{/*</div>*/}
+						<div><img id="logo" src="/images/caw.png" alt="crow logo" className="image-fluid mt-5 mb-4" alt="crow"></img></div>
+					{/*sign-up form*/}
+						<form>
+						  <div className="form-group">
+						    
+						    <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
+						  </div>
+						  <div className="form-group">
+						    
+						    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+						  </div>
+						  <button type="submit" className="btn btn-start">Sign Up</button>
+							<button onClick={this.handleClick} className="btn btn-start mt-3 mb-3">Use Without Account </button>
+						</form>
+
 				</div>
 			</div>
 			)
