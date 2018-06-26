@@ -49,4 +49,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+// sync with database
+db.sequelize.sync().then(function(){
+	app.listen(port, () => console.log(`Listening on port ${port}`));
+})
+
 module.exports = app;
