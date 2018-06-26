@@ -58,3 +58,7 @@ a:hover {
 .dropdown-menu {
 	max-width: 400px;
 }
+
+small {
+	text-align: left!important;
+}

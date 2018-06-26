@@ -18,6 +18,7 @@ const watsonRouter = require('./routes/watson')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const addUserRouter = require('./routes/addUser');
+const loginRouter = require('./routes/login')
 
 const app = express();
 
@@ -86,6 +87,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', watsonRouter);
 app.use('/', addUserRouter);
+app.use('/', loginRouter);
 
 // app.use('/', express.static('client/build'));
 

@@ -74,6 +74,7 @@ export default class SignUp extends Component {
 						    <label>Password</label>
 						    <input type="password" className="form-control" name="password" id="exampleDropdownFormPassword2" placeholder="Password" />
 						  </div>
+						  <div><small>When logged in, your searches and results will be saved to your account.</small> </div>
 						  <button type="submit" className="btn btn-start">Sign in</button>
 						</form>
 					</div>
@@ -90,6 +91,7 @@ export default class SignUp extends Component {
 						    
 						    <input type="password" className="form-control" name="signuppassword" onChange={this.handleChange} placeholder="Password" />
 						  </div>
+						  <div><small className="float-left">By signing up, you authorize us to remember your searches and results. Data associated with your account will never be shared with other parties. Click on "Use Without Account" if you would not like your data stored. </small></div>
 						  <button type="submit" className="btn btn-start" onClick={this.handleSubmit} disabled={!isEnabled}>Sign Up</button>
 							<button onClick={this.handleClick} className="btn btn-start mt-3 mb-3">Use Without Account </button>
 						</form>

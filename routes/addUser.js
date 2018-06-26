@@ -12,8 +12,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 router.post('/addUser', function(request, response){
-	var email = request.body.email;
-	var password = request.body.password;
+	var email = request.body.signupemail;
+	var password = request.body.signuppassword;
 
 	function checkEmail(email){
 
