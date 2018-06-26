@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import emailRegex from 'email-regex';
 import './signup.css'
 
 // this is the sign up and log in page
@@ -11,9 +12,6 @@ export default class SignUp extends Component {
 			signupemail: '',
 			signuppassword: '',
 			signupserverErrors: {},
-			loginemail: '',
-			loginpassword: '',
-			loginserverErrors: {}
 		}
 	}
 
@@ -34,19 +32,19 @@ export default class SignUp extends Component {
 			return;
 		} else {
 			event.preventDefault();
-			const { email, password } = this.state;
+			const { signupemail, signuppassword } = this.state;
 			let self = this;
  
 			// post to API to add new user
 			axios.post('http://localhost:3000/addUser', {
-				email, password
+				signupemail, signuppassword
 			})
 			.then(function(data){
 				console.log(data);
 			})
 			.catch(function(error){
 				console.log(error);
-				self.setState({ serverErrors: error.response.data.data });
+				// self.setState({ serverErrors: error.response.data.data });
 			})
 		}
 	}
@@ -54,7 +52,7 @@ export default class SignUp extends Component {
 	canSubmit = (event) => {
 		const {signupemail, signuppassword} = this.state;
 		return (
-			signupemail.length > 0 &&
+			emailRegex().test(signupemail) &&
 			signuppassword.length >= 6
 		)
 	}
@@ -67,14 +65,14 @@ export default class SignUp extends Component {
 			<div>
 					<div className="dropdown show">
 						<a href="#" className="float-right mr-5 mt-3" data-toggle="dropdown">Log In</a>
-						<form className="dropdown-menu p-4">
+						<form className="dropdown-menu p-4" autoComplete="off" method="post" action="http://localhost:3000/login">
 						  <div className="form-group">
 						    <label>Email address</label>
-						    <input type="email" className="form-control" name="loginemail" onChange={this.handleChange} placeholder="email@example.com" />
+						    <input type="email" className="form-control" name="email" placeholder="email@example.com" />
 						  </div>
 						  <div className="form-group">
 						    <label>Password</label>
-						    <input type="password" className="form-control" name="loginpassword" id="exampleDropdownFormPassword2" onChange={this.handleChange} placeholder="Password" />
+						    <input type="password" className="form-control" name="password" id="exampleDropdownFormPassword2" placeholder="Password" />
 						  </div>
 						  <button type="submit" className="btn btn-start">Sign in</button>
 						</form>
