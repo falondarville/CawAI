@@ -7,6 +7,11 @@ export default class Login extends Component {
 		this.props.history.push('/analysis');
 	}
 
+	handleSubmit = () => {
+		// check if the form has been filled out correctly
+		// if so, post to users email and password
+	}
+
 	render(){
 
 		return (
@@ -25,7 +30,7 @@ export default class Login extends Component {
 						    
 						    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
 						  </div>
-						  <button type="submit" className="btn btn-start">Sign Up</button>
+						  <button type="submit" className="btn btn-start" onClick={this.handleSubmit}>Sign Up</button>
 							<button onClick={this.handleClick} className="btn btn-start mt-3 mb-3">Use Without Account </button>
 						</form>
 
