@@ -64,12 +64,25 @@ export default class SignUp extends Component {
 
 		return (
 			<div>
-					{/*branding section*/}
-					<a href="/" className="float-right mr-5 mt-3">Log In</a>
+					<div className="dropdown show">
+						<a href="#" className="float-right mr-5 mt-3" data-toggle="dropdown">Log In</a>
+						<form className="dropdown-menu p-4">
+						  <div className="form-group">
+						    <label>Email address</label>
+						    <input type="email" className="form-control" placeholder="email@example.com" />
+						  </div>
+						  <div className="form-group">
+						    <label>Password</label>
+						    <input type="password" className="form-control" id="exampleDropdownFormPassword2" placeholder="Password" />
+						  </div>
+						  <button type="submit" className="btn btn-start">Sign in</button>
+						</form>
+					</div>
+
 					<div className="container text-center">
 						<div><img id="logo" src="/images/caw.png" alt="crow" className="image-fluid mt-5 mb-4"></img></div>
 					{/*sign-up form*/}
-						<form autocomplete="off">
+						<form autoComplete="off">
 						  <div className="form-group">
 						    
 						    <input type="email" className="form-control" name="email" onChange={this.handleChange} placeholder="Enter email" />

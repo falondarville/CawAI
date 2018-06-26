@@ -54,3 +54,7 @@ a {
 a:hover {
 	color: black;
 }
+
+.dropdown-menu {
+	max-width: 400px;
+}
