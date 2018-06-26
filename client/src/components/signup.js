@@ -69,7 +69,7 @@ export default class SignUp extends Component {
 					<div className="container text-center">
 						<div><img id="logo" src="/images/caw.png" alt="crow" className="image-fluid mt-5 mb-4"></img></div>
 					{/*sign-up form*/}
-						<form>
+						<form autocomplete="off">
 						  <div className="form-group">
 						    
 						    <input type="email" className="form-control" name="email" onChange={this.handleChange} placeholder="Enter email" />

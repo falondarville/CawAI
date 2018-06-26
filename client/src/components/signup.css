@@ -40,7 +40,11 @@ form {
 }
 
 .form-control:focus {
-	border-color: none;
+	box-shadow: none!important;
+}
+
+input:-webkit-autofill {
+	background-color: white!important;
 }
 
 a {
