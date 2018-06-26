@@ -26,8 +26,6 @@ export default class SignUp extends Component {
 	}
 
 	handleSubmit = (event) => {
-		// check if the form has been filled out correctly
-		// if so, post to users route
 		if(!this.canSubmit()){
 			event.preventDefault();
 			return;

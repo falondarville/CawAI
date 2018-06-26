@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-var router = express.Router();
-var bcrypt = require('bcrypt');
+const passport = require('passport')
+  	, LocalStrategy = require('passport-local').Strategy;
+const router = express.Router();
+const bcrypt = require('bcrypt');
 
 const app = express();
 
@@ -10,44 +12,17 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
 
-router.post('/users', function(request, response){
+// this is the authentication for the registration form
+router.post('/login',
+// check if sending through params or body, needs to send through body so it doesn't appear in the URL
+ passport.authenticate('local', { successRedirect: '/loggedin',
+                                  failureRedirect: '/signup?invalid=true'
+                                  })
+);
 
-	// get variables from form input
-	var email = request.body.email;
-	var password = request.body.password;
-}
+router.post('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
-// check to see if the user is already registered in the database
-router.post('/authuser', function(request, response){
-	if(request.user) {
-		db.UserData.find({
-			where: {userId: request.user.id}
-		}).then(function(data){
-			response.json({
-				email: data.email,
-				password: data.password
-			})
-		})
-	}
-})
-function checkEmail(email){
-
-	db.Users.findOne({
-		where: {
-			email: email
-		}
-	}).then(function(data){
-
-		if (data == null){
-			addUser(email, password);
-		} else {
-			throw {error: 1};
-		}
-		
-	}).catch(function(error){
-
-		response.status(422);
-		response.json({message: "There was an error.", data: {email: "This email is already in use."}})
-		return;
-	})
-}
+module.exports = router;
