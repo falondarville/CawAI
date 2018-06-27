@@ -76,7 +76,7 @@ export default class SignUp extends Component {
 						    <input type="password" className="form-control" name="password" id="exampleDropdownFormPassword2" placeholder="Password" />
 						  </div>
 						  <div><small>When logged in, your searches and results will be saved to your account.</small> </div>
-						  <button type="submit" className="btn btn-start">Sign in</button>
+						  <button type="submit" className="btn btn-start float-right">Sign in</button>
 						</form>
 					</div>
 

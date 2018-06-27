@@ -4,10 +4,20 @@ import './loggedin.css';
 
 export default class LoggedIn extends Component {
 
+	// axios get request to get past searches associated with an account
+	
+
+	constructor(){
+		super();
+		this.state: {
+
+		}
+	}
+
 	render(){
 		return (
 
-			<div>This is rendering the loggedin page.</div>
+			<h2>You have no saved searches yet.</h2>
 		)
 	}
 }
