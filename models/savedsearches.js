@@ -14,4 +14,9 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: false
 		}
 	})
+		UserData.associate = function(models){
+			UserData.belongsTo(models.Users);
+		};
+
+	return UserData;
 }
