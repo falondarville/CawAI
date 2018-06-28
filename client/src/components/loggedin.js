@@ -40,6 +40,7 @@ export default class LoggedIn extends Component {
 	render(){
 		return (
 			<div>
+				<Link className="float-left ml-5 mt-3" to="/">Home</Link>
 				<Link className="float-right mr-5 mt-3" to="/logout">Log Out</Link>
 				<div className="container text-center">
 					<button className="btn btn-start mt-5 mb-3" onClick={this.handleClick}>New Search</button>
