@@ -4,6 +4,7 @@ import './App.css';
 import Login from './components/signup';
 import Analysis from './components/analysis';
 import Loggedin from './components/loggedin';
+import Logout from './components/logout';
 
 export default class App extends Component {
   render() {
@@ -15,6 +16,8 @@ export default class App extends Component {
      			<Route exact path='/' component={Login} />
      			<Route path='/analysis' component={Analysis} />
           <Route path='/loggedin' component={Loggedin} />
+          <Route path='/logout' component={Logout} />
+          <Route path='*' component={Login} />
      		</Switch>
       	</div>
      </Router>

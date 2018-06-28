@@ -5,6 +5,7 @@ import './loggedin.css';
 export default class LoggedIn extends Component {
 
 	// axios get request to get past searches associated with an account
+	// add functionality for users to be able to clear past results 
 
 	// constructor(){
 	// 	super();
