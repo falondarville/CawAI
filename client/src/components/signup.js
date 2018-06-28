@@ -33,7 +33,7 @@ export default class SignUp extends Component {
 		} else {
 			event.preventDefault();
 			const { signupemail, signuppassword } = this.state;
-			let self = this;
+			// let self = this;
  
 			// post to API to add new user
 			axios.post('http://localhost:3000/addUser', {

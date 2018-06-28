@@ -30,14 +30,20 @@ router.get('/api/watson', function(request, response){
 	  }
 	  // if logged in, save to database with that associated user
 	  if(request.user){
-
-	  } else {
-
-	  }
+		db.UserData.find({
+			where: {userId: request.user.id}
+		}).then(function(data){
+			response.json({
+				search: data.search,
+				results: data.results
+			})
+		})
+	} else {
+		response.status(401);
+		response.json({message: "not logged in"})
+	}
 	  response.json(profile);
 	});
-
-
 });
 
 module.exports = router;

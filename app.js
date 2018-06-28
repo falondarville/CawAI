@@ -108,7 +108,7 @@ app.use(function(err, req, res, next) {
 });
 
 // sync with database
-db.sequelize.sync({ force: true }).then(function(){
+db.sequelize.sync().then(function(){
 	app.listen(port, () => console.log(`Listening on port ${port}`));
 })
 

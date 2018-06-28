@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// will need to add Redirect once I integrate checking if the user is logged in or not. If not, the user will be redirected to the homepage and cannot manually access the loggedin page
+import { Link } from 'react-router-dom';
+// import axios from 'axios';
 import './loggedin.css';
 
 export default class LoggedIn extends Component {
+
+	handleClick = () => {
+		this.props.history.push('/analysis');
+	}
 
 	// this page should only be accessible when a user is logged in
 	// use redirectToLogin method that you used with USUME
@@ -33,8 +39,14 @@ export default class LoggedIn extends Component {
 
 	render(){
 		return (
-
-			<h2>You have no saved searches yet.</h2>
+			<div>
+				<Link className="float-right mr-5 mt-3" to="/logout">Log Out</Link>
+				<div className="container text-center">
+					<button className="btn btn-start mt-5 mb-3" onClick={this.handleClick}>New Search</button>
+				{/*if statement to either display the following title or display saved searches*/}
+					<h2>You have no saved searches yet.</h2>
+				</div>
+			</div>
 		)
 	}
 }
