@@ -10,5 +10,9 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: false
 		}
 	})
+		Users.associate = function(models){
+			Users.hasMany(models.UserData);
+		};
+
 	return Users;
 }

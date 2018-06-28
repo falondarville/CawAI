@@ -1,10 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
 	var UserData = sequelize.define("UserData", {
-		date: {
-			type: DataTypes.DATE,
-			allowNull: false
-		},
 		search: {
 			type: DataTypes.TEXT,
 			allowNull: false
@@ -14,9 +10,5 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: false
 		}
 	})
-		UserData.associate = function(models){
-			UserData.belongsTo(models.Users);
-		};
-
 	return UserData;
 }

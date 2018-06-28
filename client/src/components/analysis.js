@@ -5,13 +5,17 @@ import PersonalitySunburstChart from 'personality-sunburst-chart/lib/charts/v3-d
 
 export default class Analysis extends Component {
 
-	// if user is logged in, post the search data to UserData table in association with the user or add conditional button that appears and allows user to save their search and results. 
+	// if user is logged in, post the search data to UserData table in association with the user
 
 	constructor(){
 		super();
 		this.state = {
 			content: '',
-			watsonResponse: { personality: [], needs: [], values: []},
+			watsonResponse: { 
+				personality: [], 
+				needs: [], 
+				values: [] 
+			}
 		}
 	}
 
