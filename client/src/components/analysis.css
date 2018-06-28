@@ -19,3 +19,10 @@ textarea {
 
     width: 100%;
 }
+
+#sunburstChart svg {
+    width: 100%;
+    overflow: visible;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
