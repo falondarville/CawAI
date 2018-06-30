@@ -19,21 +19,19 @@ export default class LoggedIn extends Component {
 	}
 
 	componentDidMount(){
+		var self = this;
 
-		console.log("Component did mount.");
+		axios.post('/authuser').then(function(data){
+			const userData = data.data
 
-		// axios.post('/authuser').then(function(data){
-		// 	const userData = data.data
-
-		// 	// I want to display date and snippet from the database information on panels. Once you click on a panel, I want user to be taken to a detail page. Note that multiple searches and results will need to be stored in state (as an array?)
-		// 	self.setState({
-		// 		search: userData.search, 
-		// 		results: userData.results
-		// 	})
-		// 	.catch(function(error){
-		// 		self.setState({ redirectToLogin: true });
-		// 	})
-		// }
+			// I want to display date and snippet from the database information on panels. Once you click on a panel, I want user to be taken to a detail page. 
+			self.setState({
+				search: userData.search, 
+				results: userData.results })
+			})
+			.catch(function(error){
+				self.setState({ redirectToLogin: true });
+		})
 	}
 
 	// 	{/*if statement to either display the following title or display saved searches*/}

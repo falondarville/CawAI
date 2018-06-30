@@ -18,7 +18,8 @@ const watsonRouter = require('./routes/watson')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const addUserRouter = require('./routes/addUser');
-const loginRouter = require('./routes/login')
+const loginRouter = require('./routes/login');
+const authRouter = require('./routes/authUser');
 
 const app = express();
 
@@ -88,6 +89,7 @@ app.use('/users', usersRouter);
 app.use('/', watsonRouter);
 app.use('/', addUserRouter);
 app.use('/', loginRouter);
+app.use('/', authRouter);
 
 // app.use('/', express.static('client/build'));
 
@@ -108,7 +110,7 @@ app.use(function(err, req, res, next) {
 });
 
 // sync with database
-db.sequelize.sync({ force: true }).then(function(){
+db.sequelize.sync({force:true}).then(function(){
 	app.listen(port, () => console.log(`Listening on port ${port}`));
 })
 

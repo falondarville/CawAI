@@ -8,10 +8,6 @@ module.exports = function(sequelize, DataTypes) {
 		results: {
 			type: DataTypes.TEXT,
 			allowNull: false
-		},
-		snippet: {
-			type: DataTypes.TEXT,
-			allowNull: false
 		}
 	})
 	return UserData;

@@ -38,12 +38,12 @@ router.get('/api/watson', function(request, response){
 				results: data.results
 			})
 		})
-	} else {
-		response.status(401);
-		response.json({message: "not logged in"})
-	}
-	  response.json(profile);
-	});
+		} else {
+			response.status(401);
+			response.json({message: "not logged in"})
+		}
+		  response.json(profile);
+		});
 });
 
 module.exports = router;

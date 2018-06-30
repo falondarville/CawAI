@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
 		}
 	})
 		Users.associate = function(models){
-			Users.hasMany(models.UserData);
+			Users.hasMany(models.UserData, { as: 'UserData' });
 		};
 
 	return Users;
