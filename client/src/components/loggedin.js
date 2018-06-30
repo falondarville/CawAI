@@ -6,14 +6,14 @@ import './loggedin.css';
 
 export default class LoggedIn extends Component {
 
-	// 1. axios get request to get past searches associated with an account
-	// 2. Additional functionality: users can clear past results 
-
 	constructor() {
 		super();
 		this.state = {
-			search: '',
-			results: '',
+			// search history should have four parts for each panel: datetime, search, results, and snippet. User will click on the panel to get to detail page. 
+			searchHistory: [],
+			// search: '',
+			// results: '',
+			// snippet: '',
 			redirectToLogin: false
 		}
 	}
@@ -36,6 +36,18 @@ export default class LoggedIn extends Component {
 		// }
 	}
 
+	// 	{/*if statement to either display the following title or display saved searches*/}
+	// if (this.state.searchHistory.length === 0) {
+	// 	return <h2>You have no saved searches yet.</h2>
+	// } else {
+	// {render panel for each saved search that includes date and snipper}
+	// searchHistory.map((panel) => 
+	// 	return <div class="panel panel-default">
+	// 	  <div class="panel-body">{panel}</div>
+	// 	</div>
+	// 	)
+	// }
+
 	handleClick = () => {
 		this.props.history.push('/analysis');
 	}
@@ -54,8 +66,7 @@ export default class LoggedIn extends Component {
 				<Link className="float-right mr-5 mt-3" to="/logout">Log Out</Link>
 				<div className="container text-center">
 					<button className="btn btn-start mt-5 mb-3" onClick={this.handleClick}>New Search</button>
-					{/*if statement to either display the following title or display saved searches*/}
-					<h2>You have no saved searches yet.</h2>
+
 				</div>
 			</div>
 		)
