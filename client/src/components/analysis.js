@@ -32,8 +32,8 @@ export default class Analysis extends Component {
 
 		let self = this;
  
- 		axios.get('http://localhost:3000/api/watson', {
- 			params: { content: this.state.content }
+ 		axios.post('/api/watson', {
+ 			content: this.state.content
  		})
 		 	.then(function(response){
 

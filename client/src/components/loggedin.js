@@ -19,7 +19,7 @@ export default class LoggedIn extends Component {
 		
 		var self = this;
 
-		axios.post('http://localhost:3000/authuser').then(function(data){
+		axios.post('/authuser').then(function(data){
 			
 			const userData = data.data
 
