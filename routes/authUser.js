@@ -8,7 +8,6 @@ const app = express();
 
 app.use(cors());
 
-// check 
 router.post('/authuser', function(request, response){
 	if(request.user) {
 		// query the second table

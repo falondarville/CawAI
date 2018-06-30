@@ -8,6 +8,7 @@ require('dotenv').config()
 const cors = require('cors');
 const nodemon = require('nodemon');
 const mysql = require('mysql');
+const mysql2 = require ('mysql2');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const session = require('express-session')
@@ -41,6 +42,7 @@ app.use(session({
   proxy: true,
   saveUninitialized: true
 }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // passport initialize and serialize
@@ -48,11 +50,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.serializeUser(function(user, done){
+  console.log("serialize")
   done(null, user.id);
 })
 
 passport.deserializeUser(function(id, done){
+  console.log("deserialize")
   db.Users.findById(id).then(function(user){
+    console.log("finding the user");
+    console.log(user);
     if(user){
       done(null, user.get());
     } else {
@@ -110,7 +116,7 @@ app.use(function(err, req, res, next) {
 });
 
 // sync with database
-db.sequelize.sync({force:true}).then(function(){
+db.sequelize.sync().then(function(){
 	app.listen(port, () => console.log(`Listening on port ${port}`));
 })
 

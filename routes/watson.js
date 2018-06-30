@@ -23,26 +23,17 @@ router.get('/api/watson', function(request, response){
 	};
 
 	personalityInsights.profile(profileParams, function(error, profile) {
-	  if (error) {
-	    console.log(error);
-	  } else {
-	    console.log(JSON.stringify(profile, null, 2));
-	  }
 	  // if logged in, save to database with that associated user
 	  if(request.user){
-		db.UserData.find({
-			where: {userId: request.user.id}
-		}).then(function(data){
-			response.json({
-				search: data.search,
-				results: data.results
-			})
-		})
+	  	request.user.createUserData({ search: content , results: JSON.stringify(profile)})
+	  	.then(() => console.log("We have saved the search and results successfully."))
+	  	.catch(function(error){
+	  		console.log(error);
+	  	})
 		} else {
-			response.status(401);
-			response.json({message: "not logged in"})
+		 console.log("User is not logged in.")
 		}
-		  response.json(profile);
+		 response.json(profile);
 		});
 });
 

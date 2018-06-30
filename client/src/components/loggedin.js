@@ -11,17 +11,16 @@ export default class LoggedIn extends Component {
 		this.state = {
 			// search history should have four parts for each panel: datetime, search, results, and snippet. User will click on the panel to get to detail page. 
 			searchHistory: [],
-			// search: '',
-			// results: '',
-			// snippet: '',
 			redirectToLogin: false
 		}
 	}
 
 	componentDidMount(){
+		
 		var self = this;
 
-		axios.post('/authuser').then(function(data){
+		axios.post('http://localhost:3000/authuser').then(function(data){
+			
 			const userData = data.data
 
 			// I want to display date and snippet from the database information on panels. Once you click on a panel, I want user to be taken to a detail page. 
