@@ -38,11 +38,11 @@ export default class LoggedIn extends Component {
 		if (this.state.searchHistory.length === 0) {
 			return <h2>You have no saved searches yet.</h2>
 		} else {
-			return {this.state.searchHistory.map(function(panel) { 
+			return this.state.searchHistory.map(function(panel) { 
 				return <div class="panel panel-default">
-				  <div class="panel-body">{panel}</div>
+				  <div class="panel-body">{panel.createdAt}</div>
 				</div>
-			})}
+			})
 		}
 	}
 

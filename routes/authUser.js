@@ -13,10 +13,7 @@ router.post('/authuser', function(request, response){
 		db.UserData.findAll({
 			where: {userId: request.user.id}
 		}).then(function(data){
-			response.json({
-				search: data.search,
-				results: data.results
-			})
+			response.json(data);
 		})
 	} else {
 		response.status(401);
