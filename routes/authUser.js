@@ -10,8 +10,7 @@ app.use(cors());
 
 router.post('/authuser', function(request, response){
 	if(request.user) {
-		// query the second table
-		db.UserData.find({
+		db.UserData.findAll({
 			where: {userId: request.user.id}
 		}).then(function(data){
 			response.json({

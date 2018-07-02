@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// will need to add Redirect once I integrate checking if the user is logged in or not. If not, the user will be redirected to the homepage and cannot manually access the loggedin page
 import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 import './loggedin.css';
@@ -16,7 +15,7 @@ export default class LoggedIn extends Component {
 	}
 
 	componentDidMount(){
-		
+
 		var self = this;
 
 		axios.post('/authuser').then(function(data){
@@ -25,12 +24,12 @@ export default class LoggedIn extends Component {
 
 			// I want to display date and snippet from the database information on panels. Once you click on a panel, I want user to be taken to a detail page. 
 			self.setState({
-				search: userData.search, 
-				results: userData.results })
+				searchHistory: userData })
 			})
 			.catch(function(error){
 				self.setState({ redirectToLogin: true });
 		})
+		console.log(this.state);
 	}
 
 	// 	{/*if statement to either display the following title or display saved searches*/}
@@ -63,7 +62,6 @@ export default class LoggedIn extends Component {
 				<Link className="float-right mr-5 mt-3" to="/logout">Log Out</Link>
 				<div className="container text-center">
 					<button className="btn btn-start mt-5 mb-3" onClick={this.handleClick}>New Search</button>
-
 				</div>
 			</div>
 		)
