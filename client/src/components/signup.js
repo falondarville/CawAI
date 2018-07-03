@@ -10,8 +10,7 @@ export default class SignUp extends Component {
 		super();
 		this.state = {
 			signupemail: '',
-			signuppassword: '',
-			signupserverErrors: {},
+			signuppassword: ''		
 		}
 	}
 
@@ -19,7 +18,6 @@ export default class SignUp extends Component {
 		const state = this.state;
 		state[event.target.name] = event.target.value;
 		this.setState(state, () => console.log(this.state));
-		console.log(event.target.value);
 	}
 
 	handleClick = () => {
@@ -33,8 +31,7 @@ export default class SignUp extends Component {
 		} else {
 			event.preventDefault();
 			const { signupemail, signuppassword } = this.state;
-			// let self = this;
- 
+
 			// post to API to add new user
 			axios.post('http://localhost:3000/addUser', {
 				signupemail, signuppassword
@@ -44,7 +41,6 @@ export default class SignUp extends Component {
 			})
 			.catch(function(error){
 				console.log(error);
-				// self.setState({ serverErrors: error.response.data.data });
 			})
 		}
 	}
@@ -57,6 +53,15 @@ export default class SignUp extends Component {
 		)
 	}
 
+	isLoggedIn = function() {
+		// how do I access whether or not I am logged in?
+		if (this.props.loggedin) {
+			return <a href="#" className="float-right mr-5 mt-3" data-toggle="dropdown">My Searches</a>
+		} else {
+			return <a href="#" className="float-right mr-5 mt-3" data-toggle="dropdown">Log In</a>
+		}
+	}
+
 	render(){
 
 		const isEnabled = this.canSubmit();
@@ -64,8 +69,7 @@ export default class SignUp extends Component {
 		return (
 			<div>
 					<div className="dropdown show">
-
-						<a href="#" className="float-right mr-5 mt-3" data-toggle="dropdown">Log In</a>
+						{this.isLoggedIn()}
 						<form className="dropdown-menu p-4" autoComplete="off" method="post" action="http://localhost:3000/login">
 						  <div className="form-group">
 						    <label>Email address</label>
