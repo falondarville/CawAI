@@ -15,6 +15,7 @@ const session = require('express-session')
   	, LocalStrategy = require('passport-local').Strategy;
 const db = require('./models');
 
+// API routes
 const watsonRouter = require('./routes/watson')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -22,13 +23,13 @@ const addUserRouter = require('./routes/addUser');
 const loginRouter = require('./routes/login');
 const authRouter = require('./routes/authUser');
 
-const app = express();
-
 const port = process.env.port || 3000;
 
+const app = express();
+
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -40,8 +41,9 @@ app.use(session({
   resave: true,
   name: "oatmealRaisin",
   proxy: true,
-  saveUninitialized: true
-  // cookie: { maxAge: 60000 }
+  saveUninitialized: true,
+  // prolongs the cookie session so users can make multiple queries
+  cookie: { maxAge: 6000000000 }
 }));
 
 // passport initialize and serialize
@@ -51,14 +53,11 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 passport.serializeUser(function(user, done){
-  console.log("serialize")
   done(null, user.id);
 })
 
 passport.deserializeUser(function(id, done){
-  console.log("deserialize")
   db.Users.findById(id).then(function(user){
-    console.log("finding the user");
     console.log(user);
     if(user){
       done(null, user.get());
@@ -67,6 +66,16 @@ passport.deserializeUser(function(id, done){
     }
   })
 })
+
+// app.use('/', express.static('client/build'));
+
+// use API routes
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/', watsonRouter);
+app.use('/', addUserRouter);
+app.use('/', loginRouter);
+app.use('/', authRouter);
 
 // passport log in authentication
 passport.use(new LocalStrategy({
@@ -77,7 +86,7 @@ passport.use(new LocalStrategy({
     db.Users.findOne({ 
       where:{ email: username }
       }).then(function(user){
-        if (user ==null) {
+        if (user == null) {
           return done(null, false, {message: 'Incorrect credentials'})
         }
         bcrypt.compare(password, user.password, function(err, res){
@@ -90,15 +99,6 @@ passport.use(new LocalStrategy({
     })
    }
 ))
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/', watsonRouter);
-app.use('/', addUserRouter);
-app.use('/', loginRouter);
-app.use('/', authRouter);
-
-// app.use('/', express.static('client/build'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
