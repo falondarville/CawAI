@@ -41,13 +41,14 @@ app.use(session({
   name: "oatmealRaisin",
   proxy: true,
   saveUninitialized: true
+  // cookie: { maxAge: 60000 }
 }));
-
-app.use(express.static(path.join(__dirname, 'public')));
 
 // passport initialize and serialize
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 passport.serializeUser(function(user, done){
   console.log("serialize")
