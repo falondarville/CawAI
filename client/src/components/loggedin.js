@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
+import moment from 'moment';
 import './loggedin.css';
 
 export default class LoggedIn extends Component {
@@ -34,15 +35,16 @@ export default class LoggedIn extends Component {
 		this.props.history.push('/analysis');
 	}
 
-	// if there are past searches, display the datetime in a human-readable format, as well as a snippet of the search query (10 words?). 
 	displayHistory = function() {
 
 		if (this.state.searchHistory.length === 0) {
 			return <h2>You have no saved searches yet.</h2>
 		} else {
 			return this.state.searchHistory.map(function(panel) { 
+				var date = moment(panel.createdAt).format('MMM-DD-YYYY');
+
 				return <div class="card text-center mb-2">
-				  <div class="card-body">{panel.createdAt} <br />
+				  <div class="card-body">{date} <br />
 				  {panel.search.substring(0,100) + '...'}</div>
 				</div>
 			})
