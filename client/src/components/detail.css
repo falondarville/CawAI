@@ -1,0 +1,7 @@
+.searchBox {
+	overflow-y: scroll;
+	max-height: 300px;
+	max-width: 600px;
+	border: 1px solid #FF69B4;
+	padding: 10px;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import emailRegex from 'email-regex';
+import './signup.css';
 
 export default class Login extends Component {
 
@@ -42,7 +43,7 @@ export default class Login extends Component {
 		return(
 			<div className="dropdown show">
 				{this.isLoggedIn()}
-				<form className="dropdown-menu p-4" autoComplete="off">
+				<form className="dropdown-menu p-4" autoComplete="off" method="post" action="/login">
 				  <div className="form-group">
 				    <label>Email address</label>
 				    <input type="email" className="form-control" value={this.state.email} onChange={this.handleChange} name="email" placeholder="email@example.com" />
@@ -52,7 +53,7 @@ export default class Login extends Component {
 				    <input type="password" className="form-control" value={this.state.password} onChange={this.handleChange} name="password" placeholder="Password" />
 				  </div>
 				  <div><small>When logged in, your searches and results will be stored to your account. </small> </div>
-				  <button type="submit" className="btn btn-start float-right" onClick={this.handleSubmit} disabled={!isEnabled}>Sign in</button>
+				  <button type="submit" className="btn btn-start float-right" disabled={!isEnabled}>Sign in</button>
 				</form>
 			</div>
 		)

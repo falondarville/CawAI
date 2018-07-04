@@ -43,10 +43,10 @@ export default class LoggedIn extends Component {
 			return this.state.searchHistory.map(function(panel) { 
 				var date = moment(panel.createdAt).format('MMM-DD-YYYY');
 
-				return <div key={panel.id} className="card text-center mb-2">
+				return <a href={"/detail/" + panel.id}><div key={panel.id} className="card text-center mb-2">
 				  <div className="card-body">{date} <br />
 				  {panel.search.substring(0,100) + '...'}</div>
-				</div>
+				</div></a>
 			})
 		}
 	}

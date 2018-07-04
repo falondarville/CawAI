@@ -10,10 +10,9 @@ const nodemon = require('nodemon');
 const mysql = require('mysql');
 const mysql2 = require ('mysql2');
 const bcrypt = require('bcrypt');
-const passport = require('passport');
-const session = require('express-session')
-const redis = require('connect-redis')(session);
-  	, LocalStrategy = require('passport-local').Strategy;
+const passport = require('passport')
+    , LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
 const db = require('./models');
 
 // API routes
@@ -28,21 +27,21 @@ const port = process.env.port || 3000;
 
 const app = express();
 
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors());
 app.use(session({
-  store: new redis(options)
   secret: "double macchiato STAT",
   resave: true,
   name: "oatmealRaisin",
   proxy: true,
-  saveUninitialized: true,
-  cookie: { 
-    maxAge: 86400000 
-  }
+  saveUninitialized: true
 }));
 
 // passport initialize and serialize
