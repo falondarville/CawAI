@@ -10,9 +10,9 @@ const nodemon = require('nodemon');
 const mysql = require('mysql');
 const mysql2 = require ('mysql2');
 const bcrypt = require('bcrypt');
-const redis = require('connect-redis')
 const passport = require('passport');
 const session = require('express-session')
+const redis = require('connect-redis')(session);
   	, LocalStrategy = require('passport-local').Strategy;
 const db = require('./models');
 
@@ -34,13 +34,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors());
 app.use(session({
+  store: new redis(options)
   secret: "double macchiato STAT",
   resave: true,
   name: "oatmealRaisin",
   proxy: true,
   saveUninitialized: true,
   cookie: { 
-    maxAge: 6000000000 
+    maxAge: 86400000 
   }
 }));
 
