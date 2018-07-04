@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import emailRegex from 'email-regex';
 import './signup.css'
+import Login from './login.js'
 
 // this is the sign up and log in page
 export default class SignUp extends Component {
@@ -9,8 +10,8 @@ export default class SignUp extends Component {
 	constructor(){
 		super();
 		this.state = {
-			signupemail: '',
-			signuppassword: ''		
+			email: '',
+			password: ''		
 		}
 	}
 
@@ -30,11 +31,11 @@ export default class SignUp extends Component {
 			return;
 		} else {
 			event.preventDefault();
-			const { signupemail, signuppassword } = this.state;
+			const { email, password } = this.state;
 
 			// post to API to add new user
 			axios.post('http://localhost:3000/addUser', {
-				signupemail, signuppassword
+				email, password
 			})
 			.then(function(data){
 				console.log(data);
@@ -46,20 +47,11 @@ export default class SignUp extends Component {
 	}
 
 	canSubmit = (event) => {
-		const {signupemail, signuppassword} = this.state;
+		const {email, password} = this.state;
 		return (
-			emailRegex().test(signupemail) &&
-			signuppassword.length >= 6
+			emailRegex().test(email) &&
+			password.length >= 6
 		)
-	}
-
-	isLoggedIn = function() {
-		// how do I access whether or not I am logged in?
-		if (this.props.loggedin) {
-			return <a href="#" className="float-right mr-5 mt-3" data-toggle="dropdown">My Searches</a>
-		} else {
-			return <a href="#" className="float-right mr-5 mt-3" data-toggle="dropdown">Log In</a>
-		}
 	}
 
 	render(){
@@ -68,35 +60,21 @@ export default class SignUp extends Component {
 
 		return (
 			<div>
-					<div className="dropdown show">
-						{this.isLoggedIn()}
-						<form className="dropdown-menu p-4" autoComplete="off" method="post" action="http://localhost:3000/login">
-						  <div className="form-group">
-						    <label>Email address</label>
-						    <input type="email" className="form-control" name="email" placeholder="email@example.com" />
-						  </div>
-						  <div className="form-group">
-						    <label>Password</label>
-						    <input type="password" className="form-control" name="password" id="exampleDropdownFormPassword2" placeholder="Password" />
-						  </div>
-						  <div><small>When logged in, your searches and results will be stored to your account. </small> </div>
-						  <button type="submit" className="btn btn-start float-right">Sign in</button>
-						</form>
-					</div>
+					<Login />
 
 					<div className="container text-center">
 						<div><img id="logo" src="/images/caw.png" alt="crow" className="image-fluid mt-5 mb-4"></img></div>
 
-					{/*sign-up form*/}
+						{/*sign-up form*/}
 						<form autoComplete="off">
 						  <div className="form-group">
 						  <div><small className="float-left mb-5">Caw is a user-friendly interface for the Watson Personality Insights AI, which analyzes portions of text of at least 100 words in length. Results will give insight into the author's personality traits. By signing up with Caw, users will have their searches and results stored for later reference. </small></div>
 						    
-						    <input type="email" className="form-control" name="signupemail" onChange={this.handleChange} placeholder="Enter email" />
+						    <input type="email" className="form-control" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Enter email" />
 						  </div>
 						  <div className="form-group">
 						    
-						    <input type="password" className="form-control" name="signuppassword" onChange={this.handleChange} placeholder="Password" />
+						    <input type="password" className="form-control" name="password" onChange={this.handleChange} value={this.state.password} placeholder="Password" />
 						  </div>
 						  <div><small className="float-left">By signing up, you authorize us to remember your searches and results. Data associated with your account will never be shared with other parties. Click on "Use Without Account" if you would not like your data stored. </small></div>
 						  <button type="submit" className="btn btn-start" onClick={this.handleSubmit} disabled={!isEnabled}>Sign Up</button>

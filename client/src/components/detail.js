@@ -1,0 +1,1 @@
+// this will house the detail pages for each search card that the user clicks on.

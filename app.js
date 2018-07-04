@@ -10,6 +10,7 @@ const nodemon = require('nodemon');
 const mysql = require('mysql');
 const mysql2 = require ('mysql2');
 const bcrypt = require('bcrypt');
+const redis = require('connect-redis')
 const passport = require('passport');
 const session = require('express-session')
   	, LocalStrategy = require('passport-local').Strategy;
@@ -27,10 +28,6 @@ const port = process.env.port || 3000;
 
 const app = express();
 
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -42,8 +39,9 @@ app.use(session({
   name: "oatmealRaisin",
   proxy: true,
   saveUninitialized: true,
-  // prolongs the cookie session so users can make multiple queries
-  cookie: { maxAge: 6000000000 }
+  cookie: { 
+    maxAge: 6000000000 
+  }
 }));
 
 // passport initialize and serialize
