@@ -22,6 +22,7 @@ const usersRouter = require('./routes/users');
 const addUserRouter = require('./routes/addUser');
 const loginRouter = require('./routes/login');
 const authRouter = require('./routes/authUser');
+const detailRouter = require('./routes/detail');
 
 const port = process.env.port || 3000;
 
@@ -74,6 +75,7 @@ app.use('/', watsonRouter);
 app.use('/', addUserRouter);
 app.use('/', loginRouter);
 app.use('/', authRouter);
+app.use('/', detailRouter);
 
 // passport log in authentication
 passport.use(new LocalStrategy({
