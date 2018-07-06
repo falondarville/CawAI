@@ -66,7 +66,7 @@ passport.deserializeUser(function(id, done){
   })
 })
 
-// app.use('/', express.static('client/build'));
+app.use('/', express.static('client/build'));
 
 // use API routes
 app.use('/', indexRouter);
