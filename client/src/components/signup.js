@@ -82,7 +82,7 @@ export default class SignUp extends Component {
 						    <input type="password" className="form-control" name="password" onChange={this.handleChange} value={this.state.password} placeholder="Password" />
 						    	 <small>Passwords must be 6 characters or more in length.</small>
 						  </div>
-						  <div><small className="float-left">By signing up, you authorize us to remember your searches and results. Data associated with your account will never be shared with other parties. Click on "Use Without Account" if you would not like your data stored. </small></div>
+						  <div><small className="float-left">By signing up, you authorize us to remember your searches and results. Data associated with your account will never be shared with other parties. Click on "Use Without Account" if you would not like your data stored. Note that IBM will have access to text you submit and use this to improve their AI. </small></div>
 						  <button type="submit" className="btn btn-start" onClick={this.handleSubmit} disabled={!isEnabled}>Sign Up</button>
 							<button onClick={this.handleClick} className="btn btn-start mt-3 mb-3">Use Without Account </button>
 							
