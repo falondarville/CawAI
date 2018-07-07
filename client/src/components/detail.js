@@ -39,8 +39,8 @@ export default class Detail extends Component {
 				{this.state.searchData.search}
 			</div>
 				<div className="container">
-			      <div className="row">
-			        <div className="col-sm-12">
+			      <div className="row justify-content-center">
+			        <div className="col-sm-8">
 			          <div id="sunburstChart"></div>
 			        </div>
 			      </div>
