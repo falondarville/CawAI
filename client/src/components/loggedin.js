@@ -38,12 +38,12 @@ export default class LoggedIn extends Component {
 	displayHistory = function() {
 
 		if (this.state.searchHistory.length === 0) {
-			return <h2>You have no saved searches yet.</h2>
+			return <h3 className="text-center">You have no saved searches yet.</h3>
 		} else {
 			return this.state.searchHistory.map(function(panel) { 
 				var date = moment(panel.createdAt).format('MMM-DD-YYYY');
 
-				return <a key={panel.id} href={"/detail/" + panel.id}><div className="card mb-2">
+				return <a key={panel.id} href={"/detail/" + panel.id}><div className="card mb-2 detail-cards">
 				  <div className="card-body">{date} <br />
 				  {panel.search.substring(0,100) + '...'}</div>
 				</div></a>

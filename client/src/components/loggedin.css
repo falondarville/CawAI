@@ -2,3 +2,13 @@
 	margin: 0 auto;
 	float: none;
 }
+
+.detail-cards {
+	color: black;
+}
+
+.detail-cards:hover {
+	background-color: #E9E9E9;
+	border: none;
+	text-decoration: none;
+}

@@ -12,7 +12,8 @@ app.use(cors());
 router.post('/authuser', function(request, response){
 	if(request.user) {
 		db.UserData.findAll({
-			where: {userId: request.user.id}
+			where: {userId: request.user.id},
+			order: [['updatedAt', 'DESC']]
 		}).then(function(data){
 			response.json(data);
 		})
