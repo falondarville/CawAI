@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect, Link } from 'react-router-dom';
 import PersonalitySunburstChart from 'personality-sunburst-chart/lib/charts/v3-d3v4';
-import './detail.css'
+import './detail.css';
 
 export default class Detail extends Component {
 
 	constructor(){
 		super();
 		this.state = {
-			searchData: {}
+			searchData: {},
+			loggedIn: true,
+			redirectToLogin: false
 		}
 	}
 
@@ -30,7 +33,14 @@ export default class Detail extends Component {
 		})
 		.catch(function(error){
 			console.log(error)
-		})
+			this.setState({redirectToLogin: true})
+		}.bind(this))
+	}
+
+	isLoggedIn = function() {
+		if (this.state.loggedIn) {
+			return <a href="/loggedin" className="float-right mr-5 mt-3">My Searches</a>
+		}
 	}
 
 	displaySearch = function(){
@@ -52,11 +62,27 @@ export default class Detail extends Component {
 	}
 
 	render(){
+
+		const { redirectToLogin } = this.state;
+
+		if(redirectToLogin) {
+			return <Redirect to={{ pathname: '/login' }} />
+		} else {
+
 		return (
-			<div className="container">
-				<h1 className="text-center mt-5">Your search</h1>
+			<div>
+				<Link className="float-left ml-5 mt-3" to="/">Home</Link>
+						{this.isLoggedIn()}
+				<div className="container">
+				<div className="row">
+					<div className="col-12">
+						<h1 className="text-center mt-5">Your search</h1>
+					</div>
+				</div>
 				{this.displaySearch()}
 			</div>
+			</div>
 			)
+		}
 	}
 }
