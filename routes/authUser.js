@@ -8,6 +8,7 @@ const app = express();
 
 app.use(cors());
 
+// checks if a user is logged in. If so, grab all the searches associated with that user.
 router.post('/authuser', function(request, response){
 	if(request.user) {
 		db.UserData.findAll({

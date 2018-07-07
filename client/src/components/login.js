@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import emailRegex from 'email-regex';
 import './signup.css';
 
@@ -19,7 +18,6 @@ export default class Login extends Component {
 		this.setState(state, () => console.log(this.state));
 	}
 
-	// how do I access whether or not I am logged in?
 	isLoggedIn = function() {
 		if (this.props.loggedin) {
 			return <a href="/loggedin" className="float-right mr-5 mt-3">My Searches</a>

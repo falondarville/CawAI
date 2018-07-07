@@ -12,8 +12,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 router.post('/addUser', function(request, response){
-	var email = request.body.signupemail;
-	var password = request.body.signuppassword;
+	var email = request.body.email;
+	var password = request.body.password;
 
 	function checkEmail(email){
 
@@ -34,7 +34,8 @@ router.post('/addUser', function(request, response){
 		}).catch(function(error){
 			console.log(error);
 			response.status(422);
-			response.json({ message: "There was an error.", data: {email: "This email is already in use."}});
+			response.json({ 
+				message: "There was an error.", data: {email: "This email is already in use."}});
 			return;
 		})
 	}

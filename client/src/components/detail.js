@@ -25,7 +25,7 @@ export default class Detail extends Component {
 				'version': 'v3',
 				'd3version': 'v4'
 			});
-				chart.show(data.data);
+				chart.show(JSON.parse(data.data.results));
 				console.log(data);
 		})
 		.catch(function(error){

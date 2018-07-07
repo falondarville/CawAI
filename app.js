@@ -28,10 +28,6 @@ const port = process.env.port || 3000;
 
 const app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -48,8 +44,6 @@ app.use(session({
 // passport initialize and serialize
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.use(express.static(path.join(__dirname, 'public')));
 
 passport.serializeUser(function(user, done){
   done(null, user.id);
