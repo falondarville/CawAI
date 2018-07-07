@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const cors = require('cors');
 const PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3');
 
 const db = require('./../models');

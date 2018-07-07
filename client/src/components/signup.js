@@ -3,6 +3,7 @@ import axios from 'axios';
 import emailRegex from 'email-regex';
 import './signup.css'
 import Login from './login.js'
+import swal from 'sweetalert'
 
 // this is the sign up and log in page
 export default class SignUp extends Component {
@@ -11,7 +12,8 @@ export default class SignUp extends Component {
 		super();
 		this.state = {
 			email: '',
-			password: ''		
+			password: '',
+			serverErrors: {}	
 		}
 	}
 
@@ -39,10 +41,12 @@ export default class SignUp extends Component {
 			})
 			.then(function(data){
 				console.log(data);
+				swal("Thanks for signing up! Log in to start saving your searches.")
 			})
 			.catch(function(error){
 				console.log(error);
-			})
+				this.setState({ serverErrors: error.response.data.data })
+			}.bind(this))
 		}
 	}
 
@@ -71,10 +75,12 @@ export default class SignUp extends Component {
 						  <div><small className="float-left mb-5">Caw is a user-friendly interface for the Watson Personality Insights AI, which analyzes portions of text of at least 100 words in length. Results will give insight into the author's personality traits. By signing up with Caw, users will have their searches and results stored for later reference. </small></div>
 						    
 						    <input type="email" className="form-control" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Enter email" />
+						    <div className="text-danger">{this.state.serverErrors.email}</div>
 						  </div>
 						  <div className="form-group">
 						    
 						    <input type="password" className="form-control" name="password" onChange={this.handleChange} value={this.state.password} placeholder="Password" />
+						    	 <small>Passwords must be 6 characters or more in length.</small>
 						  </div>
 						  <div><small className="float-left">By signing up, you authorize us to remember your searches and results. Data associated with your account will never be shared with other parties. Click on "Use Without Account" if you would not like your data stored. </small></div>
 						  <button type="submit" className="btn btn-start" onClick={this.handleSubmit} disabled={!isEnabled}>Sign Up</button>

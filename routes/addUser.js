@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const db = require('./../models');
@@ -9,7 +8,6 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
 
 router.post('/addUser', function(request, response){
 	var email = request.body.email;
@@ -63,5 +61,4 @@ router.post('/addUser', function(request, response){
 })
 
 module.exports = router;
-
 

@@ -1,12 +1,6 @@
 const express = require('express');
-const passport = require('passport')
-  	, LocalStrategy = require('passport-local').Strategy;
-const cors = require('cors')
 const router = express.Router();
 const db = require('./../models');
-const app = express();
-
-app.use(cors());
 
 router.post('/detail/:id', function(request, response){
 	if(request.user) {

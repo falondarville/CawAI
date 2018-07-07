@@ -10,5 +10,8 @@
 .detail-cards:hover {
 	background-color: #E9E9E9;
 	border: none;
-	text-decoration: none;
+}
+
+#link-to-detail {
+	text-decoration: none!important;
 }
