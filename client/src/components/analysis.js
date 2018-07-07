@@ -6,17 +6,27 @@ import PersonalitySunburstChart from 'personality-sunburst-chart/lib/charts/v3-d
 
 export default class Analysis extends Component {
 
-	// if user is logged in, post the search data to UserData table in association with the user
 	constructor(){
 		super();
 		this.state = {
 			content: '',
+			loggedIn: false,
 			watsonResponse: { 
 				personality: [], 
 				needs: [], 
 				values: [] 
 			}
 		}
+	}
+
+	componentDidMount(){
+		axios.post('/authuser')
+			.then(function(){
+				this.setState({ loggedIn: true })
+			}.bind(this))
+			.catch(function(error){
+
+			})
 	}
 
 	handleChange = (event) => {
@@ -60,11 +70,10 @@ export default class Analysis extends Component {
 			)
 	}
 
-	// make sure that this is working to detect whether or not the user is logged in
 	isLoggedIn = function() {
-		if (this.props.loggedin) {
+		if (this.state.loggedIn) {
 			return <a href="/loggedin" className="float-right mr-5 mt-3">My Searches</a>
-		} 
+		}
 	}
 
 	render(){
@@ -74,11 +83,11 @@ export default class Analysis extends Component {
 		return(
 			<div>
 				<Link className="float-left ml-5 mt-3" to="/">Home</Link>
-
+				{this.isLoggedIn()}
 					<div className="container">
 						<div className="text-center">
 							<img id="logo-small" alt="logo" className="img-fluid mt-5 ml-5" src="/images/caw-c-only.png"></img>
-							{this.isLoggedIn()}
+							
 							<h1>Start analyzing your text</h1>
 								<p className="mb-3">Enter a minimum of 100 words. 
 								<br /> 600 words is better. <br /> 

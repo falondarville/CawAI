@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import emailRegex from 'email-regex';
 import './signup.css';
 
@@ -8,8 +9,19 @@ export default class Login extends Component {
 		super();
 		this.state = {
 			email: '',
-			password: ''		
+			password: '',
+			loggedIn: false		
 		}
+	}
+
+	componentDidMount(){
+		axios.post('/authuser')
+			.then(function(){
+				this.setState({ loggedIn: true })
+			}.bind(this))
+			.catch(function(error){
+
+			})
 	}
 
 	handleChange = (event) => {
@@ -19,7 +31,7 @@ export default class Login extends Component {
 	}
 
 	isLoggedIn = function() {
-		if (this.props.loggedin) {
+		if (this.state.loggedIn) {
 			return <a href="/loggedin" className="float-right mr-5 mt-3">My Searches</a>
 		} else {
 			return <a href="#" className="float-right mr-5 mt-3" data-toggle="dropdown">Log In</a>
