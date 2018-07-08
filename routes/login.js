@@ -5,8 +5,8 @@ const router = express.Router();
 
 // this is the authentication for the login form
 router.post('/login',
-passport.authenticate('local', { successRedirect: 'http://localhost:3001/loggedin',
-                                failureRedirect: 'http://localhost:3001/?invalid=true'
+passport.authenticate('local', { successRedirect: '/loggedin',
+                                failureRedirect: '/?invalid=true'
                                 })
 );
 

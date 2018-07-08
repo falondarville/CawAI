@@ -35,7 +35,7 @@ export default class SignUp extends Component {
 			const { email, password } = this.state;
 
 			// post to API to add new user
-			axios.post('http://localhost:3000/addUser', {
+			axios.post('/addUser', {
 				email, password
 			})
 			.then(function(data){
