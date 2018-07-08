@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect, Link } from 'react-router-dom';
-import PersonalitySunburstChart from 'personality-sunburst-chart/lib/charts/v3-d3v4';
+import PersonalitySunburstChart from 'personality-sunburst-chart/lib/charts/v3-d3v4'; 
 import './detail.css';
 
 export default class Detail extends Component {
