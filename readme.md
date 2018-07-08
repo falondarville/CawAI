@@ -2,6 +2,16 @@
 
 These are the development notes for the full-stack application Caw. This is a friendly user interface for the Watson Personality Insights AI. Basically, this AI takes in a portion of text containing more than 100 words and preferably over 1,200 words. With this, the AI provides some data about the author’s personality traits. Caw allows users to either plug in their text without logging in, or to create an account so that searches and results can be saved for future reference.
 
+Note that this application was deployed on Heroku, a free hosting platform. If the page does not initially load, this is because the "dynos" are asleep. Please wait a few minutes, and you will be able to access the app. 
+
+[Use the Application Here](#)
+
+[Comprehensive Build Notes on falondarville.com](#)
+
+[Presentation Slides](https://slides.com/falondarville/deck-1/live#/)
+
+[Portfolio](https://falondarville.github.io/Portfolio/)
+
 ## Technologies Used
 
 This project was built using React.js, JavaScript, Bootstrap 4, HTML and CSS, React Router for directing the proper components to their URLs, Express for the server, MySQL for the database, Sequelize to create the database models and ORM structure, and axios for front-end requests to the back-end.
