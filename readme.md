@@ -18,9 +18,8 @@ This project was built using React.js, JavaScript, Bootstrap 4, HTML and CSS, Re
 
 I used three packages in this application that I have not used previously:
 
-1. email-regex for checking that a field contains input matching the format of a standard email address
-2. personality-sunburst-chart handles the graphical representation of the Watson Personality Insights data
-3. sweet-alert is an easy way to add a beautifully styled alert. I used this to notify users that they have successfully created an account and prompt them to sign in
+1. personality-sunburst-chart handles the graphical representation of the Watson Personality Insights data
+2. sweet-alert is an easy way to add a beautifully styled alert. I used this to notify users that they have successfully created an account and prompt them to sign in
 
 As for organizing the project, I used GitHub’s built-in Projects tab, which allows you to create a project tied to a specific repository. I created several columns including: To Do, In Progress, and Completed. I also created a daily diary of my progress, a copy of which appears below. On top of that, I keep written lists and notes in a notebook. I committed to GitHub often and used commit names that were logical, descriptive, and concise.
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import emailRegex from 'email-regex';
 import './signup.css'
 import Login from './login.js'
 import swal from 'sweetalert'
@@ -53,7 +52,7 @@ export default class SignUp extends Component {
 	canSubmit = (event) => {
 		const {email, password} = this.state;
 		return (
-			emailRegex().test(email) &&
+			email.length > 0 &&
 			password.length >= 6
 		)
 	}
