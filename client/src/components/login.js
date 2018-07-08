@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import emailRegex from 'email-regex';
 import './signup.css';
 
 export default class Login extends Component {
@@ -41,7 +40,7 @@ export default class Login extends Component {
 	canSubmit = (event) => {
 		const {email, password} = this.state;
 		return (
-			emailRegex().test(email) &&
+			email.length > 0 &&
 			password.length >= 0
 		)
 	}
