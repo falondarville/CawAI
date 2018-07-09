@@ -1,5 +1,9 @@
 ## Caw Full-Stack Application
 
+>>"Now this is an inevitable truth: whatever you write will reveal your personality, and whatever you are will show through in your writing." - Brenda Ueland
+
+>>"All writers, by the way they use the language, reveal something of their spirits, their habits, their capacities, and their biases." - William Strunk Jr.
+
 Caw is a friendly user interface for the Watson Personality Insights AI. This AI takes in a portion of text containing more than 100 words and preferably over 1,200 words. With this, the AI provides some data about the author’s personality traits. Caw allows users to either plug in their text without logging in, or to create an account so that searches and results can be saved for future reference.
 
 Note that this application was deployed on Heroku, a free hosting platform. If the page does not initially load, this is because the "dynos" are asleep. Please wait a few minutes, and you will be able to access the app. 
@@ -50,7 +54,3 @@ The Watson Personality Insights AI was easy to work with and well documented. I 
 ## Literary Influence
 
 This application was strongly influenced by my fascination with what writers reveal through their work. I have spent a lot of time thinking about what part of writing comes from what an author can be trying to mask or keep out of his work. There is perhaps no act so personal that comes to light and can garner so much attention for its hidden or plain residues from the originator (the author in this case). 
-
-"Now this is an inevitable truth: whatever you write will reveal your personality, and whatever you are will show through in your writing." - Brenda Ueland
-
-"All writers, by the way they use the language, reveal something of their spirits, their habits, their capacities, and their biases." - William Strunk Jr.
