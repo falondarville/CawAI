@@ -26,6 +26,8 @@ Whether or not the user has logged in, she will be able to perform searches on t
 2. Needs: Excitement, Harmony, Curiosity, Ideal, Closeness, Self-expression, Liberty, Love, Practicality, Stability, Challenge, and Structure
 3. Values: Self-transcendence / Helping others, Conservation / Tradition, Hedonism / Taking pleasure in life, Self-enhancement / Achieving success, and Open to change / Excitement
 
+If a user is logged in, she can access her past searches on a single listing page. The searches are displayed with the most recent search showing at the top. She can click on any of the detail panels and view the entire search query and results on a detail page. 
+
 ## Technologies and Methods Used
 
 This project was built using React.js, JavaScript, Bootstrap 4, HTML and CSS, React Router for directing the proper components to their URLs, Express for the server, MySQL for the database, Sequelize to create the database models and ORM structure, and axios for front-end requests to the back-end.
@@ -44,3 +46,11 @@ This project started out at a React Native application. However, given that the 
 Building USUME prior to this application gave me a strong foundation for this project. There were many similar pieces: the passport configuration and usage, the overall structure of relation between the Express server and the React front-end, and the sign up and login logic.
 
 The Watson Personality Insights AI was easy to work with and well documented. I knew that I wanted to visualize the data for the users, and looked into chart.js and canvas do accomplish this. However, I did not end up having to create my own visualization. I used a package that took the data from the API response and populated a sunburst chart. This package saved me a lot of time and trouble, and really emphasizes the community aspect of coding. Without the effort that those developers went through to create that package, I would have had a lot more work to do.
+
+## Literary Influence
+
+This application was strongly influenced by my fascination with what writers reveal through their work. I have spent a lot of time thinking about what part of writing comes from what an author can be trying to mask or keep out of his work. There is perhaps no act so personal that comes to light and can garner so much attention for its hidden or plain residues from the originator (the author in this case). 
+
+"Now this is an inevitable truth: whatever you write will reveal your personality, and whatever you are will show through in your writing." - Brenda Ueland
+
+"All writers, by the way they use the language, reveal something of their spirits, their habits, their capacities, and their biases." - William Strunk Jr.
