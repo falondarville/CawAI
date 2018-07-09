@@ -4,9 +4,9 @@ These are the development notes for the full-stack application Caw. This is a fr
 
 Note that this application was deployed on Heroku, a free hosting platform. If the page does not initially load, this is because the "dynos" are asleep. Please wait a few minutes, and you will be able to access the app. 
 
-[Use the Application Here](#)
+[Use the Application Here](https://shrouded-meadow-54760.herokuapp.com/)
 
-[Comprehensive Build Notes on falondarville.com](#)
+[Comprehensive Build Notes on falondarville.com](https://falondarville.com/development-notes-for-caw/)
 
 [Presentation Slides](https://slides.com/falondarville/deck-1/live#/)
 
