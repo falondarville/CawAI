@@ -1,10 +1,12 @@
 ## Caw Full-Stack Application
 
-These are the development notes for the full-stack application Caw. This is a friendly user interface for the Watson Personality Insights AI. Basically, this AI takes in a portion of text containing more than 100 words and preferably over 1,200 words. With this, the AI provides some data about the author’s personality traits. Caw allows users to either plug in their text without logging in, or to create an account so that searches and results can be saved for future reference.
+Caw is a friendly user interface for the Watson Personality Insights AI. This AI takes in a portion of text containing more than 100 words and preferably over 1,200 words. With this, the AI provides some data about the author’s personality traits. Caw allows users to either plug in their text without logging in, or to create an account so that searches and results can be saved for future reference.
 
 Note that this application was deployed on Heroku, a free hosting platform. If the page does not initially load, this is because the "dynos" are asleep. Please wait a few minutes, and you will be able to access the app. 
 
 [Use the Application Here](https://shrouded-meadow-54760.herokuapp.com/)
+
+![alt text](./caw.gif)
 
 [Comprehensive Build Notes on falondarville.com](https://falondarville.com/development-notes-for-caw/)
 
