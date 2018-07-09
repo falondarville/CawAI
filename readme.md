@@ -14,7 +14,19 @@ Note that this application was deployed on Heroku, a free hosting platform. If t
 
 [Portfolio](https://falondarville.github.io/Portfolio/)
 
-## Technologies Used
+## Detailed Utility of the Application
+
+From the homepage, the user will have the capability to sign up. She will also be able to click through to the search page without signing up. By signing up for the service, the user's searches will be stored and she will be able to access the search query and results at a later time by logging in. If the user opts not to create an account and log in prior to searching, her search will not be stored in the Caw database. However, the IBM Watson API may still store the search queries. 
+
+The homepage of the application will detect whether or not the user is logged in. If she is logged in, the homepage will display a link to her past searches. If she is not logged in, the homepage will instead display a link to Log In. 
+
+Whether or not the user has logged in, she will be able to perform searches on the analysis page. Here, she will add the search query to the search box and click the "Get your results" button. Within seconds, here results will populate below the search box and she will see a visual representation of the data from Watson. This data is structured as follow, as outlined by the Watson Personality Insights documentation. 
+
+1. Big Five personality characteristics: Agreeableness, Conscientiousness, Extraversion, Emotional range, and Openness
+2. Needs: Excitement, Harmony, Curiosity, Ideal, Closeness, Self-expression, Liberty, Love, Practicality, Stability, Challenge, and Structure
+3. Values: Self-transcendence / Helping others, Conservation / Tradition, Hedonism / Taking pleasure in life, Self-enhancement / Achieving success, and Open to change / Excitement
+
+## Technologies and Methods Used
 
 This project was built using React.js, JavaScript, Bootstrap 4, HTML and CSS, React Router for directing the proper components to their URLs, Express for the server, MySQL for the database, Sequelize to create the database models and ORM structure, and axios for front-end requests to the back-end.
 
