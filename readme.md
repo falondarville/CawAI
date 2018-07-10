@@ -10,9 +10,15 @@ Note that this application was deployed on Heroku, a free hosting platform. If t
 
 ![alt text](./caw.gif)
 
+Read the day-to-day progress on this application. 
+
 [Comprehensive Build Notes on falondarville.com](https://falondarville.com/development-notes-for-caw/)
 
+This application was presented to a group of over thirty people. 
+
 [Presentation Slides](https://slides.com/falondarville/deck-1/live#/)
+
+Please view my portfolio for more information about my other coding and creative projects. 
 
 [Portfolio](https://falondarville.github.io/Portfolio/)
 
