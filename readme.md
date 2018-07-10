@@ -10,7 +10,7 @@ Note that this application was deployed on Heroku, a free hosting platform. If t
 
 ![alt text](./caw.gif)
 
-Read the [comprehensive build notes](https://falondarville.com/development-notes-for-caw/)on falondarville.com.
+Read the [comprehensive build notes](https://falondarville.com/development-notes-for-caw/) on falondarville.com.
 
 This application was [presented](https://slides.com/falondarville/deck-1/live#/) to a group of over thirty people. 
 
